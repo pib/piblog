@@ -1,0 +1,8 @@
+* TODO Iniital implementation
+  - [1/6] Blog Flask app and script
+    - [X] Script which runs app
+    - [ ] Takes argument for flask config
+    - [ ] Uses config for Flask-FlatPages
+    - [ ] Uses config for Frozen-Flask
+    - [ ] Uses Flask-Themes to render pages
+    - [ ] Uses Flask-Assets to compile static assets
