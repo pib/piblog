@@ -1,9 +1,11 @@
 * TODO Iniital implementation
-  - [2/7] Blog Flask app and script
+  - [5/7] Blog Flask app and script
     - [X] Script which runs app
     - [X] Takes argument for flask config
-    - [ ] Sets up instance folder based on config location
-    - [ ] Uses config for Flask-FlatPages
-    - [ ] Uses config for Frozen-Flask
-    - [ ] Uses Flask-Themes to render pages
+    - [X] Sets up instance folder based on config location
+    - [X] Sets up Flask-FlatPages
+    - [ ] Sets up Frozen-Flask
+    - [X] Uses Flask-Fleem to render pages
     - [ ] Uses Flask-Assets to compile static assets
+  - [0/1] Enhancement
+    - [ ] Get Pygments set up and working properly

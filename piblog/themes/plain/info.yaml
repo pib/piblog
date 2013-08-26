@@ -1,0 +1,9 @@
+---
+application: "piblog"
+identifier:  "plain"
+name:        "Plain, boring theme"
+author:      "Paul Bonser"
+description: "A plain theme to be used as a fallback and example of how a theme should be put together"
+website:     "http://probablyprogramming.com/"
+license:     "Public Domain"
+doctype:     "html5"

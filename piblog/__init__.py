@@ -1,21 +1,42 @@
-from flask import Blueprint, Flask, current_app
+from flask import Blueprint, Flask
+from flask_fleem import Fleem, theme_manager
+from flask_flatpages import FlatPages
+from os.path import abspath, join
 
-piblog_bp = Blueprint('piblog_bp', __name__)
+try:
+    import flask_debugtoolbar as dbt  # pylint: disable=F0401
+except ImportError:
+    dbt = None
+
+blueprint = Blueprint('blueprint', __name__)
+pages = FlatPages()
+
+from piblog.views import instance_theme_loader
 
 
-@piblog_bp.route('/')
-def index():
-    configured_message = current_app.config.get('INDEX_MESSAGE',
-                                                'Simple Index')
-    return '<html><head></head><body>{}</body></html>'.format(
-        configured_message)
+def init_app(app):
+    app.register_blueprint(blueprint)
+    pages.init_app(app)
+    Fleem(app, loaders=[instance_theme_loader,
+                        theme_manager.packaged_themes_loader,
+                        theme_manager.theme_paths_loader])
+    if dbt is not None:
+        dbt.DebugToolbarExtension(app)
 
 
-def create_app(config=None):
-    app = Flask(__name__)
-    app.register_blueprint(piblog_bp)
+def create_app(config=None, instance_path=None):
+    if instance_path is not None:
+        instance_path = abspath(instance_path)
+
+    app = Flask(__name__, instance_path=instance_path,
+                instance_relative_config=True)
 
     if config is not None:
         app.config.from_pyfile(config)
+        app.config.setdefault('FLATPAGES_ROOT',
+                              join(app.instance_path, 'posts'))
+        app.config.setdefault('FLATPAGES_EXTENSION', '.md')
+
+    init_app(app)
 
     return app

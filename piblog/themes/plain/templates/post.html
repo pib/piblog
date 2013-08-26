@@ -1,0 +1,6 @@
+{% extends theme('layout.html') %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<h1>{{ post.meta.title }}</h1>
+<p>{{ post.body }}</p>
+{% endblock %}

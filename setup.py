@@ -15,10 +15,18 @@ setup(
         'Flask',
         'Flask-Assets',
         'Flask-FlatPages',
+        'Flask-Fleem',
         'Flask-Script',
-        'Flask-Themes',
         'Frozen-Flask',
+        'Pygments',
     ],
+    extras_require={
+        'debug': ['Flask-DebugToolbar']
+    },
+    dependency_links=[
+        'git+https://github.com/pib/fleem.git@master#egg=flask_fleem-0.0.3'
+    ],
+
 
     entry_points={
         'console_scripts': [
