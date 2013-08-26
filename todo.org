@@ -1,7 +1,8 @@
 * TODO Iniital implementation
-  - [1/6] Blog Flask app and script
+  - [2/7] Blog Flask app and script
     - [X] Script which runs app
-    - [ ] Takes argument for flask config
+    - [X] Takes argument for flask config
+    - [ ] Sets up instance folder based on config location
     - [ ] Uses config for Flask-FlatPages
     - [ ] Uses config for Frozen-Flask
     - [ ] Uses Flask-Themes to render pages
