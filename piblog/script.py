@@ -1,5 +1,6 @@
-from flask_script import Manager
-from . import create_app, freezer
+from flask_frozen import Freezer
+from flask_script import Command, Manager
+from . import create_app
 
 
 manager = Manager(create_app)
@@ -8,14 +9,20 @@ manager.add_option(
     '-c', '--config', dest='config', required=False, default='piblog.cfg',
     help='Specify an alternative config file (default: "piblog.cfg")')
 manager.add_option(
+    '-D', '--debug-toolbar', dest='debug_toolbar', action='store_true',
+    default=False, help='Enable Flask-DebugToolbar if installed')
+manager.add_option(
     '-i', '--instance-path', dest='instance_path', required=False,
     default='.', help='Path containing site config (default: ".")')
 
 
-@manager.command
-def freeze():
+class FreezeCommand(Command):
     'Freeze the site to static files.'
-    freezer.freeze()
+    def handle(self, app):
+        freezer = Freezer(app)
+        freezer.freeze()
+
+manager.add_command('freeze', FreezeCommand())
 
 
 def run():

@@ -1,7 +1,6 @@
 from flask import Blueprint, Flask
 from flask_fleem import Fleem, theme_manager
 from flask_flatpages import FlatPages
-from flask_frozen import Freezer
 from os.path import abspath, join
 
 try:
@@ -9,8 +8,7 @@ try:
 except ImportError:
     dbt = None
 
-blueprint = Blueprint('blueprint', __name__)
-freezer = Freezer()
+blueprint = Blueprint('piblog', __name__)
 pages = FlatPages()
 
 from piblog.views import instance_theme_loader
@@ -22,12 +20,11 @@ def init_app(app):
     Fleem(app, loaders=[instance_theme_loader,
                         theme_manager.packaged_themes_loader,
                         theme_manager.theme_paths_loader])
-    freezer.init_app(app)
     if dbt is not None:
         dbt.DebugToolbarExtension(app)
 
 
-def create_app(config=None, instance_path=None):
+def create_app(config=None, instance_path=None, debug_toolbar=False):
     if instance_path is not None:
         instance_path = abspath(instance_path)
 
@@ -39,6 +36,8 @@ def create_app(config=None, instance_path=None):
         app.config.setdefault('FLATPAGES_ROOT',
                               join(app.instance_path, 'posts'))
         app.config.setdefault('FLATPAGES_EXTENSION', '.md')
+    if debug_toolbar:
+        app.debug = True
 
     init_app(app)
 
