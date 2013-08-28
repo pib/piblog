@@ -15,7 +15,7 @@ manager.add_option(
 @manager.command
 def freeze():
     'Freeze the site to static files.'
-    print('FREEZE')
+    freezer.freeze()
 
 
 def run():
