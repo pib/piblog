@@ -1,6 +1,6 @@
 from flask_frozen import Freezer
 from flask_script import Command, Manager
-from . import create_app
+from . import create_app, generators
 
 
 manager = Manager(create_app)
@@ -17,9 +17,12 @@ manager.add_option(
 
 
 class FreezeCommand(Command):
+
     'Freeze the site to static files.'
+
     def handle(self, app):
         freezer = Freezer(app)
+        freezer.register_generator(generators.theme_static)
         freezer.freeze()
 
 manager.add_command('freeze', FreezeCommand())

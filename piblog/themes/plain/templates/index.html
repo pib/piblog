@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
 {% for post in posts %}
-<li><a href="{{ url_for('piblog.post', path=post.path) }}/">{{ post.meta.title }} - by {{ post.meta.author }} on {{ post.meta.published }}</a></li>
+<li><a href="{{ url_for('piblog.post', path=post.path) }}">{{ post.meta.title }} - by {{ post.meta.author }} on {{ post.meta.published }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends theme('layout.html') %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
+<a href="/">&lt;- home</a>
 <h1>{{ post.meta.title }}</h1>
 <p>{{ post.body }}</p>
 {% endblock %}

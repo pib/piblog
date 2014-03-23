@@ -7,7 +7,7 @@ setup(
     author='Paul Bonser',
     author_email='pib@paulbonser.com',
     description='Static blog generator',
-    
+
     packages=['piblog'],
     include_package_data=True,
     platforms='any',
@@ -24,7 +24,7 @@ setup(
         'debug': ['Flask-DebugToolbar']
     },
     dependency_links=[
-        'git+https://github.com/pib/fleem.git@master#egg=flask_fleem-0.0.3'
+        'git+https://github.com/thrisp/fleem.git@b233dcf5a2#egg=flask_fleem-0.0.3'
     ],
 
 
