@@ -1,5 +1,5 @@
 * TODO Iniital implementation
-  - [5/8] Blog Flask app and script
+  - [5/7] Blog Flask app and script
     - [X] Script which runs app
     - [X] Takes argument for flask config
     - [X] Sets up instance folder based on config location
@@ -14,10 +14,33 @@
             piblog.cfg?)
       - [ ] Allow users to specify their own path(s) for themes,
             document how to do so.
+      - [ ] Implement bundling of .scss files into css
     - [X] Uses Flask-Fleem to render pages
     - [ ] Uses Flask-Assets to compile static assets
-  - [0/2] Enhancement
+  - [0/3] Enhancement
     - [ ] Get Pygments set up and working properly
     - [ ] Allow users to switch between themes (static files only, not
           templates) Via javascript and/or cookies.
     - [ ] Documentation for all features.
+* TODO Documentation
+  - [0/3] Configuration Documentation
+    - [ ] How to specify which theme is used
+    - [ ] How to specify where to look for themes
+    - [ ] How to specify whether JS/CSS files are bundled (they are
+          bundled by default)
+  - [0/4] Theme Documentation
+    - [ ] Required directories and files
+    - [ ] Which files and extensions are handled specially (.js and
+          .css are bundled together into the output by default, .scss
+          files are converted to .css and bundled with the other .css)
+    - [ ] What order are bundles converted (I'm not sure myself, but
+          hopefully it's something like lexicographical order so order
+          can be specified by adding numbers to the beginning)
+    - [ ] What files are skipped (files starting with "_", for
+          example, to allow .scss files to include others without them
+          just being bundled into the whole thing)
+  - [0/3] Page/Post Documentation
+    - [ ] Required fields for .md file headers.
+    - [ ] How to use pygments syntax highlighting.
+    - [ ] How to write posts/pages in languages other than markdown
+          (if/when implemented)
