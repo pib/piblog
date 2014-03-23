@@ -6,7 +6,10 @@
     - [X] Sets up Flask-FlatPages
     - [-] Sets up Frozen-Flask
       - [X] Get themes generated into frozen site
-      - [ ] Use theme.return_bundle to freeze packed assets
+      - [ ] Use theme.return_bundle to freeze packed assets. Perhaps
+            have an option to not bundle JS and/or CSS. When bundling,
+            though, the non-bundled CSS and JS should not be copied
+            into the output during a freeze.
       - [ ] Output files to a different location by default (next to
             piblog.cfg?)
       - [ ] Allow users to specify their own path(s) for themes,
