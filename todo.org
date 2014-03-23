@@ -1,12 +1,20 @@
 * TODO Iniital implementation
-  - [6/7] Blog Flask app and script
+  - [5/8] Blog Flask app and script
     - [X] Script which runs app
     - [X] Takes argument for flask config
     - [X] Sets up instance folder based on config location
     - [X] Sets up Flask-FlatPages
-    - [X] Sets up Frozen-Flask
+    - [-] Sets up Frozen-Flask
       - [X] Get themes generated into frozen site
+      - [ ] Use theme.return_bundle to freeze packed assets
+      - [ ] Output files to a different location by default (next to
+            piblog.cfg?)
+      - [ ] Allow users to specify their own path(s) for themes,
+            document how to do so.
     - [X] Uses Flask-Fleem to render pages
     - [ ] Uses Flask-Assets to compile static assets
-  - [0/1] Enhancement
+  - [0/2] Enhancement
     - [ ] Get Pygments set up and working properly
+    - [ ] Allow users to switch between themes (static files only, not
+          templates) Via javascript and/or cookies.
+    - [ ] Documentation for all features.
